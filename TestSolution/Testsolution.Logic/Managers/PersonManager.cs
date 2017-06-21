@@ -23,5 +23,10 @@ namespace Testsolution.Logic.Managers
         {
             return this.personRepository.Get(id);
         }
+
+        public IList<Person> GetPage(int index, int size)
+        {
+            return this.personRepository.GetPage(index, size);
+        }
     }
 }

@@ -13,9 +13,9 @@
             var myClasses = Classes.FromThisAssembly();
 
             container.Register(myClasses
-        .Where(type => type.Name.EndsWith("Controller"))
-        .WithServiceDefaultInterfaces()
-        .LifestylePerWebRequest());
+                .Where(type => type.Name.EndsWith("Controller"))
+                .WithServiceDefaultInterfaces()
+                .LifestylePerWebRequest());
 
             container.Register(myClasses.
                 BasedOn<IController>().
@@ -27,6 +27,7 @@
                             .BasedOn<IHttpController>()
                             .If(c => c.Name.EndsWith("Controller"))
                             .LifestyleTransient());
+
         }
     }
 }

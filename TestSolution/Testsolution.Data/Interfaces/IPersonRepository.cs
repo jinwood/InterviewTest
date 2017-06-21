@@ -7,5 +7,6 @@
     {
         Person Get(int id);
         IList<Person> GetAll();
+        IList<Person> GetPage(int pageIndex, int pageSize);
     }
 }

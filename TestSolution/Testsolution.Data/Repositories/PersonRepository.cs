@@ -1,5 +1,6 @@
 ﻿namespace Testsolution.Data.Repositories
 {
+    using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
@@ -24,6 +25,12 @@
         public IList<Person> GetAll()
         {
             return personRepo;
+        }
+
+        public IList<Person> GetPage(int pageIndex, int pageSize)
+        {
+            var result = personRepo.Skip(pageIndex * pageSize).Take(pageSize).ToList();
+            return result;
         }
 
         private void LoadRepo()
