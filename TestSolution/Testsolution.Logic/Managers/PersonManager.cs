@@ -4,6 +4,7 @@ namespace Testsolution.Logic.Managers
 {
     using Data.Entities;
     using Data.Interfaces;
+    using System;
 
     public class PersonManager : IPersonManager
     {
@@ -11,7 +12,8 @@ namespace Testsolution.Logic.Managers
 
         public PersonManager(IPersonRepository personRepository)
         {
-            this.personRepository = personRepository;
+            if (personRepository != null) this.personRepository = personRepository;
+            else throw new ArgumentNullException();
         }
 
         public IList<Person> GetAll()
