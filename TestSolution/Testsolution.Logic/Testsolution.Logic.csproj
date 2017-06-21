@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LogicInstaller.cs" />
+    <Compile Include="Managers\IPersonManager.cs" />
     <Compile Include="Managers\PersonManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

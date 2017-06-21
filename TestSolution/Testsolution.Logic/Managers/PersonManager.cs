@@ -5,7 +5,7 @@ namespace Testsolution.Logic.Managers
     using Data.Entities;
     using Data.Interfaces;
 
-    public class PersonManager
+    public class PersonManager : IPersonManager
     {
         private readonly IPersonRepository personRepository;
 

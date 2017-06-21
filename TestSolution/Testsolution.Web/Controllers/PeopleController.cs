@@ -7,9 +7,9 @@
     [RoutePrefix("People")]
     public class PeopleController : ApiController
     {
-        private readonly PersonManager personManager;
+        private readonly IPersonManager personManager;
 
-        public PeopleController(PersonManager personManager)
+        public PeopleController(IPersonManager personManager)
         {
             if (personManager != null) this.personManager = personManager; else throw new ArgumentNullException();
             //this.personManager = personManager ?? throw new ArgumentNullException();

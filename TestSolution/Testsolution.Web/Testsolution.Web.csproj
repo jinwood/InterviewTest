@@ -205,7 +205,6 @@
     <Compile Include="Infrastructure\Windsor\CastleWindsorDependencyScope.cs" />
     <Compile Include="Infrastructure\Windsor\IocContainer.cs" />
     <Compile Include="Infrastructure\Windsor\WebInstaller.cs" />
-    <Compile Include="Models\PersonModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
