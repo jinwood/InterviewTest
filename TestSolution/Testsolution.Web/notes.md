@@ -1,6 +1,6 @@
-﻿## King's Court Trust Code Test
+﻿## Kings Court Trust Code Test
 
-#### This is my submission to the King's Court Trust code test.
+#### This is my submission to the Kings Court Trust code test.
 I addressed the final two points in the documentation:
 
 * Write some unit tests
