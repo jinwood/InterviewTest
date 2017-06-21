@@ -11,10 +11,13 @@
 
     public class PersonRepository : IPersonRepository
     {
+        private readonly IStreamProvider _streamProvider;
+
         public List<Person> personRepo = new List<Person>();
-        public PersonRepository()
+        public PersonRepository(IStreamProvider streamProvider)
         {
-            LoadRepo();
+            if (streamProvider != null) _streamProvider = streamProvider; else throw new ArgumentNullException();
+            personRepo = LoadRepo(_streamProvider.GetStreamReader());
         }
 
         public Person Get(int id)
@@ -33,13 +36,10 @@
             return result;
         }
 
-        private void LoadRepo()
+        private List<Person> LoadRepo(StreamReader reader)
         {
-            using (StreamReader reader = new StreamReader(HttpContext.Current.Server.MapPath(@"~/bin/Data/MOCK_DATA.json")))
-            {
-                var json = reader.ReadToEnd();
-                personRepo = JsonConvert.DeserializeObject<List<Person>>(json);
-            }
+            var json = reader.ReadToEnd();
+            return JsonConvert.DeserializeObject<List<Person>>(json);
         }
 
     }

@@ -13,6 +13,11 @@ namespace Testsolution.Data
                 .Where(type => type.Name.EndsWith("Repository"))
                 .LifestylePerWebRequest()
                 .WithServiceDefaultInterfaces());
+
+            container.Register(Classes.FromThisAssembly()
+                .Where(type => type.Name.EndsWith("Provider"))
+                .LifestylePerWebRequest()
+                .WithServiceDefaultInterfaces());
         }
     }
 }
