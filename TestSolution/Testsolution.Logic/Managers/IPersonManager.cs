@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using Testsolution.Data.Entities;
-using Testsolution.Data.Interfaces;
 
 namespace Testsolution.Logic.Managers
 {
+    //added interface to allow unit testing
     public interface IPersonManager
     {
         IList<Person> GetAll();

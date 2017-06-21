@@ -2,7 +2,7 @@
 using System.Web;
 using Testsolution.Data.Interfaces;
 
-namespace Testsolution.Data
+namespace Testsolution.Data.Providers
 {
     public class StreamProvider : IStreamProvider
     {

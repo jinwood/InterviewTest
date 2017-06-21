@@ -4,7 +4,6 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
-    using System.Web;
     using Entities;
     using Interfaces;
     using Newtonsoft.Json;
@@ -14,9 +13,13 @@
         private readonly IStreamProvider _streamProvider;
 
         public List<Person> personRepo = new List<Person>();
+
         public PersonRepository(IStreamProvider streamProvider)
         {
             if (streamProvider != null) _streamProvider = streamProvider; else throw new ArgumentNullException();
+
+            //split out the stream implementation so that the test project
+            //can use its own data source
             personRepo = LoadRepo(_streamProvider.GetStreamReader());
         }
 
@@ -32,15 +35,14 @@
 
         public IList<Person> GetPage(int pageIndex, int pageSize)
         {
-            var result = personRepo.Skip(pageIndex * pageSize).Take(pageSize).ToList();
-            return result;
+            return personRepo.Skip(pageIndex * pageSize).Take(pageSize).ToList();
         }
 
+        //stream reader implementation is now passed in instead of being hard coded
         private List<Person> LoadRepo(StreamReader reader)
         {
             var json = reader.ReadToEnd();
             return JsonConvert.DeserializeObject<List<Person>>(json);
         }
-
     }
 }
